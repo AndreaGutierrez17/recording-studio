@@ -1,0 +1,1250 @@
+/* ======================================================
+   Global Styles
+====================================================== */
+:root {
+  --tors-yellow: #FECD55;
+  --tors-black: #000;
+  --tors-white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #000;
+  color: var(--tors-white);
+  overflow-x: hidden !important;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ======================================================
+   NAVBAR
+====================================================== */
+.tors-navbar nav {
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.navbar-brand .brand-main {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.navbar-brand .brand-sub {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: .3s;
+}
+
+.nav-link:hover {
+  color: var(--tors-yellow) !important;
+}
+
+.btn-highlight {
+  background: var(--tors-yellow);
+  color: #000 !important;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 700;
+  transition: .25s;
+}
+
+.btn-highlight:hover {
+  filter: brightness(1.15);
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+.hero-section {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.3),
+    rgba(0,0,0,0.9)
+  );
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-title {
+  font-size: clamp(2.1rem, 4vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  text-shadow: 0px 4px 18px rgba(0,0,0,0.7);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: .95;
+  max-width: 620px;
+  margin: 18px 0 25px;
+}
+
+.hero-substrong {
+  color: var(--tors-yellow);
+  font-weight: 700;
+}
+
+.proof-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--tors-yellow);
+}
+
+.proof-label {
+  font-size: .9rem;
+  opacity: 0.8;
+}
+
+/* ============ LISTEN TO OUR WORK – SONY STYLE CARDS ============ */
+
+/* Fondo general de la sección (ajústalo si ya tienes uno) */
+.tors-listen {
+  background: #000;
+  padding: 100px 0;
+}
+
+/* Encabezado (reusa tu estilo global si ya existe) */
+.tors-listen .section-eyebrow {
+  color: #FECD55;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.tors-listen .section-title {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.tors-listen .section-subtitle {
+  max-width: 600px;
+  opacity: 0.8;
+  font-size: 18px;
+}
+
+/* Botón secundario */
+.tors-cta-secondary {
+  border-radius: 999px;
+  border: 2px solid #FECD55;
+  color: #FECD55;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 9px 20px;
+  transition: 0.25s ease;
+}
+
+.tors-cta-secondary:hover {
+  background: #FECD55;
+  color: #000;
+}
+
+/* ==== TARJETAS TIPO SONY (APLICADAS A LOS TRACKS) ==== */
+
+.track-card {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Marco cuadrado con borde grueso y esquinas inferiores redondeadas */
+.track-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0 0 30px 30px;
+  overflow: hidden;
+  border: 5px solid #FECD55;
+  background: #111;
+  box-shadow: 0 0 18px rgba(254, 205, 85, 0.25);
+  position: relative;
+}
+
+/* Imagen */
+.track-cover-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.track-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Hover tipo Sony – zoom suave */
+.track-card:hover .track-cover {
+  transform: scale(1.08);
+}
+
+/* Hover lift de toda la card */
+.track-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Play button circular encima de la portada */
+.track-play {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: #FECD55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 1.6rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.2s ease;
+  z-index: 2;
+}
+
+.track-card:hover .track-play {
+  transform: translateY(-2px);
+}
+
+.track-play:hover {
+  background: #ffdd7e;
+}
+
+/* Wave “fake EQ” en la parte baja de la portada */
+.track-wave {
+  position: absolute;
+  left: 12px;
+  right: 72px;
+  bottom: 12px;
+  height: 22px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.track-wave span {
+  flex: 1;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  height: 20%;
+  animation: torsWaveIdle 1.8s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+/* pequeños delays para que no se vean idénticas */
+.track-wave span:nth-child(2n) {
+  animation-delay: 0.2s;
+}
+.track-wave span:nth-child(3n) {
+  animation-delay: 0.4s;
+}
+.track-wave span:nth-child(5n) {
+  animation-delay: 0.6s;
+}
+
+/* Estado “idle” si no está sonando */
+@keyframes torsWaveIdle {
+  0%, 100% {
+    height: 18%;
+  }
+  50% {
+    height: 35%;
+  }
+}
+
+/* Si en tu JS agregas .is-playing a la card, activamos un EQ más loco */
+.track-card.is-playing .track-wave span {
+  animation-name: torsWaveActive;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@keyframes torsWaveActive {
+  0%, 100% {
+    height: 25%;
+  }
+  25% {
+    height: 80%;
+  }
+  50% {
+    height: 40%;
+  }
+  75% {
+    height: 70%;
+  }
+}
+
+/* Meta debajo de la tarjeta */
+.track-meta {
+  margin-top: 14px;
+}
+
+.track-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.track-info {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Controles del carrusel */
+.multi-track-carousel .carousel-control-prev,
+.multi-track-carousel .carousel-control-next {
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(254, 205, 85, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.carousel-control-icon i {
+  font-size: 18px;
+  color: #FECD55;
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+  .tors-listen {
+    padding: 70px 0;
+  }
+
+  .tors-listen .section-title {
+    font-size: 32px;
+  }
+
+  .track-title {
+    font-size: 16px;
+  }
+}
+
+
+/* ============================
+   HOW IT WORKS — SECTION
+============================ */
+
+.tors-how-it-works {
+  background: #000;
+  padding: 100px 0;
+  color: #fff;
+}
+
+.section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FECD55;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* Línea central que conecta los pasos */
+.tors-steps-wrapper {
+  position: relative;
+  padding: 40px 0;
+}
+
+.tors-steps-line {
+  width: 100%;
+  height: 3px;
+  background: #FECD55;
+  position: absolute;
+  top: 75px;
+  left: 0;
+  z-index: 1;
+}
+
+/* STEP — Contenedor */
+.tors-step {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Círculo del número */
+.tors-step-dot {
+  width: 60px;
+  height: 60px;
+  background: #000;
+  border: 3px solid #FECD55;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s ease-in-out;
+}
+
+/* Número dentro del círculo */
+.tors-step-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: #FECD55;
+}
+
+/* Hover — sutil animación premium */
+.tors-step-dot:hover {
+  background: #FECD55;
+}
+.tors-step-dot:hover .tors-step-number {
+  color: #000;
+}
+
+.tors-step-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.tors-step-text {
+  font-size: 15px;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+/* CTA */
+.btn-highlight {
+  background: #FECD55;
+  color: #000;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  border: none;
+  transition: 0.2s;
+}
+
+.btn-highlight:hover {
+  background: #e8b949;
+  transform: translateY(-3px);
+}
+
+/* ============================
+   Responsive
+============================ */
+
+/* En pantallas < 768px la línea se divide por tarjetas */
+@media (max-width: 768px) {
+
+  .tors-steps-line {
+    display: none;
+  }
+
+  .tors-step-dot {
+    margin-bottom: 15px;
+  }
+
+  .tors-step {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+}
+
+/* SECTION BASE */
+.tors-services {
+  padding: 100px 0;
+  background: #000;
+  color: #fff;
+}
+
+/* EYEBROW (subtítulo superior pequeño) */
+.tors-services .section-eyebrow {
+  color: #FECD55;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* TITULOS */
+.tors-services .section-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.tors-services .section-subtitle {
+  font-size: 18px;
+  color: #ccc;
+  max-width: 520px;
+  line-height: 1.4;
+}
+
+/* SERVICES TAGLINE */
+.services-tagline {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ddd;
+}
+
+/* Cards */
+.service-card {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 40px 28px;
+  text-align: center;
+  transition: all 0.25s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Icon */
+.service-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #FECD55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+.service-icon i {
+  font-size: 26px;
+  color: #000;
+}
+
+/* Card Title */
+.service-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 8px;
+}
+
+/* Paragraph */
+.service-text {
+  font-size: 15px;
+  color: #ccc;
+  margin-top: 10px;
+  line-height: 1.45;
+}
+
+/* HOVER */
+.service-card:hover {
+  border-color: #FECD55;
+  transform: translateY(-6px);
+}
+
+/* CTA Button */
+.tors-services .btn.btn-outline-highlight {
+  border: 2px solid #FECD55;
+  color: #FECD55;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.tors-services .btn.btn-outline-highlight:hover {
+  background: #FECD55;
+  color: #000;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+  .tors-services {
+    padding: 70px 0;
+  }
+
+  .tors-services .section-title {
+    font-size: 34px;
+  }
+
+  .service-card {
+    padding: 32px 22px;
+  }
+}
+
+/* ARTISTS SECTION */
+.tors-section {
+  padding: 100px 0;
+  background: #000;
+  color: #fff;
+}
+
+.section-eyebrow {
+  color: #FECD55;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.section-subtitle {
+  max-width: 600px;
+  opacity: 0.8;
+  font-size: 18px;
+}
+
+/* GRID */
+.tors-artists-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARD */
+.artist-card {
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.artist-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0 0 30px 30px;
+  overflow: hidden;
+  border: 5px solid #FECD55;
+  background: #111;
+  box-shadow: 0 0 18px rgba(254, 205, 85, 0.25);
+}
+
+.artist-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Hover Zoom */
+.artist-card:hover .artist-cover {
+  transform: scale(1.08);
+}
+
+/* Hover Lift */
+.artist-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ARTIST TEXT */
+.artist-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.artist-meta {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* MOBILE */
+@media(max-width: 575px) {
+  .section-title {
+    font-size: 32px;
+  }
+  .artist-name {
+    font-size: 18px;
+  }
+}
+
+/* ========================
+   TESTIMONIALS SECTION
+======================== */
+.tors-testimonials {
+  padding: 120px 0;
+  background: #000;
+  color: #fff;
+}
+
+.tors-section .section-eyebrow {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: var(--tors-yellow);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.tors-section .section-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.tors-section .section-subtitle {
+  font-size: 17px;
+  color: #ccc;
+}
+
+/* --- Tarjetas --- */
+.tors-testimonial-card {
+  background: #111;
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid #1a1a1a;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tors-testimonial-card:hover {
+  border-color: var(--tors-yellow);
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(254, 205, 85, 0.25);
+}
+
+/* Avatar Circular */
+.tors-testimonial-avatar-wrapper {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 3px solid var(--tors-yellow);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tors-testimonial-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Nombre • Rol */
+.tors-testimonial-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tors-testimonial-role {
+  font-size: 14px;
+  color: #d1d1d1;
+}
+
+.tors-testimonial-quote {
+  font-size: 15px;
+  color: #ddd;
+  line-height: 1.5;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+/* Etiqueta inferior */
+.tors-testimonial-footer {
+  font-size: 13px;
+  color: #b9b9b9;
+  border-top: 1px solid #222;
+  padding-top: 12px;
+}
+
+.tors-testimonial-tag {
+  background: rgba(254, 205, 85, 0.12);
+  color: var(--tors-yellow);
+  padding: 4px 10px;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+.tors-testimonial-logo {
+  font-size: 12px;
+  color: #ffffff96;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .tors-testimonials {
+    padding: 80px 0;
+  }
+  .tors-section .section-title {
+    font-size: 32px;
+  }
+  .tors-testimonial-card:hover {
+    transform: none;
+  }
+}
+
+/* ===============================
+   FINAL CTA SECTION
+=============================== */
+.tors-final-cta {
+  background: #000;
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.tors-final-cta .section-eyebrow {
+  color: #FECD55;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+
+.tors-final-cta .section-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #FFF;
+}
+
+.tors-final-cta .section-subtitle {
+  color: #EEE;
+  max-width: 550px;
+  font-size: 1.08rem;
+}
+
+/* Bullets */
+.tors-final-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tors-final-dot {
+  width: 14px;
+  height: 14px;
+  background: #FECD55;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.tors-final-label {
+  font-size: 1rem;
+  color: #FFF;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tors-final-text {
+  font-size: 0.85rem;
+  color: #CCC;
+  margin: 0;
+}
+
+/* CTA Panel */
+.tors-final-panel {
+  background: #111;
+  border: 2px solid #FECD55;
+  padding: 35px 35px;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 0 25px rgba(254,205,85,0.1);
+}
+
+.tors-final-tag {
+  font-size: .85rem;
+  color: #FECD55;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  text-transform: uppercase;
+}
+
+.tors-final-heading {
+  font-size: 1.6rem;
+  color: #FFF;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.tors-final-copy {
+  color: #DDD;
+  font-size: .95rem;
+  margin-bottom: 20px;
+  max-width: 450px;
+}
+
+/* Button */
+.btn-highlight {
+  background: #FECD55;
+  color: #000;
+  border-radius: 50px;
+  font-weight: 700;
+  padding: 14px 24px;
+  transition: .25s ease-in-out;
+}
+
+.btn-highlight:hover {
+  background: #FFE18A;
+  transform: translateY(-3px);
+}
+
+.tors-final-note {
+  color: #AAA;
+  font-size: .85rem;
+  margin-top: 15px;
+  max-width: 400px;
+}
+
+/* Responsive */
+@media(max-width: 992px) {
+  .tors-final-cta {
+    padding: 80px 0;
+  }
+  .tors-final-panel {
+    margin-top: 30px;
+  }
+}
+
+@media(max-width: 576px) {
+  .tors-final-cta .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* ========== FOOTER ========== */
+.tors-footer {
+  background: #000;
+  color: #fff;
+  padding: 80px 0 40px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0;
+  color: #FECD55;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  color: #ffffffcc;
+  margin-bottom: 10px;
+}
+
+.footer-desc {
+  max-width: 270px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.footer-socials a {
+  font-size: 1.4rem;
+  margin-right: 12px;
+  color: #FECD55;
+  transition: 0.25s ease;
+}
+.footer-socials a:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-head {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #FECD55;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-menu li {
+  margin-bottom: 8px;
+}
+.footer-menu a {
+  color: #ffffffcc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.25s;
+}
+.footer-menu a:hover {
+  color: #FECD55;
+}
+
+.footer-cta-text {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 15px;
+}
+
+.btn-highlight {
+  background: #FECD55;
+  color: #000;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 10px 20px;
+  transition: 0.25s;
+}
+.btn-highlight:hover {
+  background: #ffda78;
+  color: #000;
+}
+
+.footer-divider {
+  border-color: #ffffff22;
+  margin: 40px 0 25px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+.footer-bottom a {
+  color: #ffffffcc;
+  margin-left: 16px;
+  transition: 0.25s;
+}
+.footer-bottom a:hover {
+  color: #FECD55;
+}
+
+/* LOGO cuadrado detrás si lo activamos */
+.footer-logo {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #FECD55, #caa144);
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .tors-footer {
+    padding: 60px 0 30px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* ===============================
+   BEFORE / AFTER AUDIO PLAYER
+=============================== */
+
+.tors-before-after {
+  background: #050509;
+  padding: 80px 0;
+}
+
+.tors-before-after .section-title {
+  font-size: 2.1rem;
+}
+
+/* Toggle Demo / Final */
+.tors-ba-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.tors-ba-toggle .toggle-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.tors-ba-toggle .toggle-label.active {
+  color: #FECD55;
+}
+
+.toggle-track {
+  width: 70px;
+  height: 28px;
+  border-radius: 999px;
+  background: #11111a;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-thumb {
+  width: 32px;
+  height: 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FECD55, #ffdf8e);
+  transform: translateX(0);
+  transition: 0.23s ease;
+}
+
+/* Texto actual */
+.tors-ba-current {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 14px;
+}
+
+.tors-ba-note {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 10px;
+  max-width: 340px;
+}
+
+/* Botón play */
+.tors-ba-play {
+  margin-top: 6px;
+}
+
+/* Visual derecha */
+.tors-ba-visual {
+  position: relative;
+  border-radius: 24px;
+  background: radial-gradient(circle at top, #2a2238, #050509);
+  padding: 30px;
+  overflow: hidden;
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tors-ba-wave {
+  position: absolute;
+  width: 160%;
+  height: 180px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(254,205,85,0.3),
+    rgba(254,205,85,0.3) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  opacity: 0.35;
+  transform-origin: center;
+  animation: baWaveMove 8s linear infinite;
+}
+
+.tors-ba-wave.left {
+  top: -20px;
+  left: -30%;
+  transform: rotate(-10deg);
+}
+
+.tors-ba-wave.right {
+  bottom: -40px;
+  right: -30%;
+  transform: rotate(12deg);
+}
+
+@keyframes baWaveMove {
+  0% { transform: translateX(0) rotate(-8deg); }
+  50% { transform: translateX(-40px) rotate(-8deg); }
+  100% { transform: translateX(0) rotate(-8deg); }
+}
+
+.tors-ba-badge {
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,0.85);
+  border-radius: 18px;
+  padding: 14px 18px;
+  border: 1px solid rgba(254,205,85,0.8);
+  text-align: center;
+  max-width: 260px;
+}
+
+.tors-ba-badge span {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+.tors-ba-badge strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .tors-before-after {
+    padding: 70px 0;
+  }
+  .tors-ba-visual {
+    margin-top: 12px;
+  }
+}
+

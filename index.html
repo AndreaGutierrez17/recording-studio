@@ -1,120 +1,842 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <title>TORS – The Online Recording Studio | Premium Music Production</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maison Fresh — Coming Soon</title>
-  <meta name="description" content="Maison Fresh — an elegant fresh produce experience at the historic St. Lawrence Market, Old Toronto. Join the list for opening updates." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="assets/logo.jpeg" />
-  <meta property="og:title" content="Maison Fresh — Coming Soon" />
-  <meta property="og:description" content="Fresh, refined, and unmistakably Toronto. Opening soon at St. Lawrence Market." />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="The Online Recording Studio (TORS) – global online music production with 300M+ streams, chart-topping records and Netflix syncs." />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+
+  <!-- Google Font (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Custom CSS (MISMO NIVEL que este HTML) -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <div class="brand">
-        <img class="logo" src="assets/logo.jpeg" alt="Maison Fresh logo" />
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" />
-              <stop offset="50%" />
-              <stop offset="100%" />
-            </linearGradient>
-          </defs>
-          <path d="M10 30 L70 5 L130 30 L130 90 Q70 135 10 90 Z" class="crest-shape"/>
-          <path d="M70 25 q-12 10 -24 0 q12 16 24 28 q12-12 24-28 q-12 10 -24 0z" class="fleur"/>
-          <path d="M25 55 q20 10 45 10 q25 0 45-10" class="rule"/>
-        </svg>
-        <div class="brand-text">
-          <span class="overline">Old Toronto · St. Lawrence Market</span>
-          <h1>MAISON <span>FRESH</span></h1>
-        </div>
-      </div>
-     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
 
-    <!-- Menú principal -->
-    <nav class="nav" id="mainNav" aria-label="Primary">
-      <a href="#story">Our Story</a>
-      <a href="#location">Location</a>
-      <a href="#join">Join the List</a>
+  <!-- ================= NAVBAR ================= -->
+  <header class="tors-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark container py-3">
+      <!-- LOGO: aquí sustituyes el span por tu <img src="img/logo.png"> si quieres -->
+      <a class="navbar-brand d-flex align-items-center" href="#hero">
+        <span class="brand-logo-placeholder me-2"></span>
+        <span class="fw-bold brand-main">TORS</span>
+        <span class="brand-sub ms-2 d-none d-md-inline">
+          The Online Recording Studio
+        </span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#how-it-works">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#listen">Listen to Our Work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pricing">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-sm btn-highlight ms-lg-2 ui-sound" href="#book-call">
+              Book a Call
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
 
-  <main id="content">
-    <!-- Set your real opening date/time (Toronto): data-countdown="YYYY-MM-DDTHH:MM:SS-05:00" -->
-    <section class="hero" data-countdown="2025-11-21T09:00:00-05:00">
-      <div class="container hero-inner">
-        <p class="kicker">Finely Curated Produce · French Flair</p>
-        <h2 class="hero-title">Opening Soon</h2>
-        <p class="hero-sub">Freshness meets elegance in the heart of Old Toronto. Sign up to be first in line for opening day, tastings, and early access.</p>
+  <!-- ================= HERO (VIDEO TAL CUAL) ================= -->
+  <section id="hero" class="hero-section position-relative">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="media/hero-poster.jpg"
+    >
+      <source src="media/hero-1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-        <form id="notifyForm" class="notify-form" aria-labelledby="notifyTitle">
-          <label id="notifyTitle" for="email" class="sr-only">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email" />
-          <button type="submit" class="btn">Notify Me</button>
-          <p class="form-note">No spam. Just tasteful updates.</p>
-          <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
-        </form>
+    <!-- overlay la ajustamos en CSS, no toco tu video -->
+    <div class="hero-overlay"></div>
 
-        <div class="countdown" aria-hidden="true">
-          <div><span id="dd">00</span><small>Days</small></div>
-          <div><span id="hh">00</span><small>Hours</small></div>
-          <div><span id="mm">00</span><small>Minutes</small></div>
-          <div><span id="ss">00</span><small>Seconds</small></div>
+    <div class="hero-content container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <p class="badge text-dark bg-highlight fw-semibold mb-3 d-inline-flex align-items-center">
+            <i class="bi bi-globe-americas me-2"></i> Global Online Production
+          </p>
+          <h1 class="hero-title">
+            Premium Music Production<br />
+            for Serious Artists.
+          </h1>
+          <p class="hero-subtitle">
+            We turn your demos into release-ready records with
+            <span class="hero-substrong">300M+ streams</span>, chart-topping singles,
+            and syncs on Netflix, Hulu &amp; Amazon Prime.
+          </p>
+
+          <div class="hero-ctas d-flex flex-wrap align-items-center gap-3">
+            <a href="#book-call" class="btn btn-highlight btn-lg ui-sound">
+              Book a Call
+              <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <a href="#listen" class="btn btn-outline-light btn-lg ui-sound">
+              Listen to Our Work
+            </a>
+          </div>
+
+          <!-- proof points -->
+          <div class="hero-proof d-flex flex-wrap gap-4 mt-4">
+            <div class="proof-item">
+              <div class="proof-value">300M+</div>
+              <div class="proof-label">Streams</div>
+            </div>
+            <div class="proof-item">
+              <div class="proof-value">#1</div>
+              <div class="proof-label">International Charts</div>
+            </div>
+            <div class="proof-item">
+              <div class="proof-value">Syncs</div>
+              <div class="proof-label">Netflix, Hulu, Prime</div>
+            </div>
+            <div class="proof-item">
+              <div class="proof-value">Global</div>
+              <div class="proof-label">Producers &amp; Musicians</div>
+            </div>
+          </div>
         </div>
+
+        <!-- lado derecho libre para luego (stats, badges, etc.) -->
+        <div class="col-lg-5 d-none d-lg-block"></div>
       </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-    </section>
-
-    <section id="story" class="section section-light">
-      <div class="container grid-2">
-        <div>
-          <h3>Our Story</h3>
-          <p>Maison Fresh brings a boutique, Parisian sensibility to Toronto’s most storied market. We partner with growers who prize flavour and seasonality, curating produce and grocery essentials with impeccable standards.</p>
-          <p>From early-morning florals to late-afternoon cheeses, every detail is chosen to turn daily shopping into a small ceremony of taste.</p>
-        </div>
-        <div class="card">
-          <h4>The Maison Standard</h4>
-          <ul class="list-check">
-            <li>Daily-picked, seasonal produce</li>
-            <li>Local partners and ethical sourcing</li>
-            <li>Small-batch pantry & patisserie</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="location" class="section">
-      <div class="container grid-2">
-        <div>
-          <h3>Location & Hours</h3>
-          <p><strong>St. Lawrence Market</strong><br/>93 Front St E, Toronto, ON</p>
-          <p class="muted">Soft opening schedule will be announced via email. Join the list for details.</p>
-          <a class="btn btn-outline" href="https://www.google.com/maps/place/Toronto,+Ontario,+Canad%C3%A1/@43.7182412,-79.3780581,11z/data=!3m1!4b1!4m6!3m5!1s0x89d4cb90d7c63ba5:0x323555502ab4c477!8m2!3d43.653226!4d-79.3831843!16zL20vMGg3aDY?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Open in Google Maps</a>
-        </div>
-        <div class="map-frame" aria-hidden="true">
-          <div class="map-placeholder">Map Preview</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Maison Fresh · All rights reserved.</p>
-      <p class="tiny">Designed with care for a refined daily market experience.</p>
     </div>
-  </footer>
+  </section>
 
+ <!-- ============ LISTEN TO OUR WORK – CARRUSEL 9 TARJETAS ============ -->
+  <section id="listen" class="tors-section tors-listen">
+    <div class="container">
+
+      <!-- encabezado sección -->
+      <div class="row align-items-end mb-4">
+        <div class="col-12 col-lg-8">
+          <p class="section-eyebrow">SELECTED WORK</p>
+          <h2 class="section-title mb-2">Listen to Our Work</h2>
+          <p class="section-subtitle mb-0">
+            A small curated preview of tracks we've produced for independent artists worldwide.
+          </p>
+        </div>
+        <div class="col-12 col-lg-4 text-lg-end mt-3 mt-lg-0">
+          <button class="btn btn-outline-light tors-cta-secondary ui-sound">
+            Discuss Your Next Release
+          </button>
+        </div>
+      </div>
+
+      <!-- carrusel tipo Sony pero negro/amarillo -->
+      <div id="tracksCarousel" class="carousel slide multi-track-carousel" data-bs-ride="false">
+        <div class="carousel-inner">
+
+          <!-- SLIDE 1 -->
+          <div class="carousel-item active">
+            <div class="row g-4 justify-content-center">
+
+              <!-- CARD 1 -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <article class="track-card" data-track="0">
+                  <div class="track-frame">
+                    <div class="track-cover-wrapper">
+                      <img src="img/artist-1.jpg" alt="Midnight City Lights" class="track-cover" />
+                      <button type="button" class="track-play ui-sound" aria-label="Play Midnight City Lights">
+                        <i class="bi bi-play-fill"></i>
+                      </button>
+                      <div class="track-wave">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="track-meta">
+                    <h3 class="track-title">Midnight City Lights</h3>
+                    <p class="track-info">Pop • Female Vocal • Full Production</p>
+                  </div>
+                  <!-- aquí luego conectas tu audio real -->
+                  <audio class="track-audio" src="track/sweet-life-luxury-chill-438146.mp3" preload="metadata"></audio>
+                </article>
+              </div>
+
+              <!-- CARD 2 -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <article class="track-card" data-track="1">
+                  <div class="track-frame">
+                    <div class="track-cover-wrapper">
+                      <img src="img/artist-2.jpg" alt="Runaway Echoes" class="track-cover" />
+                      <button type="button" class="track-play ui-sound" aria-label="Play Runaway Echoes">
+                        <i class="bi bi-play-fill"></i>
+                      </button>
+                      <div class="track-wave">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="track-meta">
+                    <h3 class="track-title">Runaway Echoes</h3>
+                    <p class="track-info">Indie • Male Vocal • Full Band</p>
+                  </div>
+                  <audio class="track-audio" src="track/rock-420049.mp3" preload="metadata"></audio>
+                </article>
+              </div>
+
+              <!-- CARD 3 -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <article class="track-card" data-track="2">
+                  <div class="track-frame">
+                    <div class="track-cover-wrapper">
+                      <img src="img/artist-4.jpg" alt="Golden Horizon" class="track-cover" />
+                      <button type="button" class="track-play ui-sound" aria-label="Play Golden Horizon">
+                        <i class="bi bi-play-fill"></i>
+                      </button>
+                      <div class="track-wave">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="track-meta">
+                    <h3 class="track-title">Golden Horizon</h3>
+                    <p class="track-info">Worship • Modern • Dynamic Mix</p>
+                  </div>
+                  <audio class="track-audio" src="track/upbeat-pop-music-416013.mp3" preload="metadata"></audio>
+                </article>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+<!-- agregar 3 tarjetas -->
+
+          <!-- SLIDE 3 -->
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+<!-- agregar 2 tarjetas -->
+            
+              <!-- CARD 9 -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <article class="track-card" data-track="8">
+                  <div class="track-frame">
+                    <div class="track-cover-wrapper">
+                      <img src="img/track-9.jpg" alt="Night Session" class="track-cover" />
+                      <button type="button" class="track-play ui-sound" aria-label="Play Night Session">
+                        <i class="bi bi-play-fill"></i>
+                      </button>
+                      <div class="track-wave">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="track-meta">
+                    <h3 class="track-title">Night Session</h3>
+                    <p class="track-info">Jazz • Session Band</p>
+                  </div>
+                  <audio class="track-audio" src="audio/upbeat-pop-music.mp3" preload="metadata"></audio>
+                </article>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CONTROLES DEL CARRUSEL -->
+        <button class="carousel-control-prev ui-sound" type="button" data-bs-target="#tracksCarousel" data-bs-slide="prev">
+          <span class="carousel-control-icon" aria-hidden="true">
+            <i class="bi bi-chevron-left"></i>
+          </span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next ui-sound" type="button" data-bs-target="#tracksCarousel" data-bs-slide="next">
+          <span class="carousel-control-icon" aria-hidden="true">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+<section id="how-it-works" class="tors-section tors-how-it-works">
+  <div class="container">
+
+    <!-- Título y descripción -->
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <p class="section-eyebrow">PROCESS</p>
+        <h2 class="section-title mb-3">How It Works</h2>
+        <p class="section-subtitle">
+          A simple 3-step process from rough demo to a release-ready record, 
+          tailored for independent artists.
+        </p>
+      </div>
+    </div>
+
+    <!-- Línea con 3 puntos (steps) -->
+    <div class="tors-steps-wrapper">
+      <div class="tors-steps-line"></div>
+
+      <div class="row g-4 justify-content-between tors-steps-row">
+        <!-- STEP 1 -->
+        <div class="col-12 col-md-4">
+          <div class="tors-step">
+            <div class="tors-step-dot">
+              <span class="tors-step-number">1</span>
+            </div>
+            <h3 class="tors-step-title">Upload Your Demo</h3>
+            <p class="tors-step-text">
+              Send us your rough idea, voice memo or home recording. 
+              We’ll review your vision and goals for the track.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="col-12 col-md-4">
+          <div class="tors-step">
+            <div class="tors-step-dot">
+              <span class="tors-step-number">2</span>
+            </div>
+            <h3 class="tors-step-title">Collaborate with Our Team</h3>
+            <p class="tors-step-text">
+              Work directly with our producers, engineers and session musicians 
+              to shape the arrangement and sound.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="col-12 col-md-4">
+          <div class="tors-step">
+            <div class="tors-step-dot">
+              <span class="tors-step-number">3</span>
+            </div>
+            <h3 class="tors-step-title">Receive Your Masterpiece</h3>
+            <p class="tors-step-text">
+              Get a fully mixed &amp; mastered, release-ready record, 
+              ready for streaming platforms and sync opportunities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA final del bloque -->
+    <div class="text-center mt-5">
+      <a href="#book-call" class="btn btn-highlight btn-lg ui-sound">
+        Book a Call
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES / WHAT WE DO -->
+<section id="services" class="tors-section tors-services">
+  <div class="container">
+
+    <div class="row align-items-start mb-4">
+      <div class="col-12 col-lg-7">
+        <p class="section-eyebrow">SERVICES</p>
+        <h2 class="section-title mb-3">What We Do for Your Music</h2>
+        <p class="section-subtitle mb-0">
+          From first demo to final master, TORS handles every stage of production
+          with a global team of producers, engineers and session musicians.
+        </p>
+      </div>
+      <div class="col-12 col-lg-5 mt-3 mt-lg-0 text-lg-end">
+        <p class="services-tagline mb-2">
+          Built around your song, not a template.
+        </p>
+        <a href="#pricing" class="btn btn-outline-highlight btn-sm ui-sound">
+          View Instrument-Based Pricing
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Service 1 -->
+      <div class="col-12 col-md-4">
+        <article class="service-card h-100">
+          <div class="service-icon">
+            <i class="bi bi-sliders"></i>
+          </div>
+          <h3 class="service-title">Full Production</h3>
+          <p class="service-text">
+            Turn your rough idea or voice memo into a fully arranged,
+            radio-ready record with bespoke production and sound design.
+          </p>
+        </article>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="col-12 col-md-4">
+        <article class="service-card h-100">
+          <div class="service-icon">
+            <i class="bi bi-soundwave"></i>
+          </div>
+          <h3 class="service-title">Mixing &amp; Mastering</h3>
+          <p class="service-text">
+            Mix and master tailored for streaming, playlists and sync —
+            punchy, clear and competitive across platforms.
+          </p>
+        </article>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="col-12 col-md-4">
+        <article class="service-card h-100">
+          <div class="service-icon">
+            <i class="bi bi-people"></i>
+          </div>
+          <h3 class="service-title">Session Musicians &amp; Development</h3>
+          <p class="service-text">
+            Access our worldwide roster of musicians, vocalists and
+            writers to elevate arrangements, hooks and performances.
+          </p>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ARTISTS SECTION – SONY STYLE CARDS -->
+<section id="artists" class="tors-section tors-artists">
+  <div class="container">
+
+    <div class="row mb-4">
+      <div class="col-12">
+        <p class="section-eyebrow">ARTISTS</p>
+        <h2 class="section-title mb-2">Artists We’ve Worked With</h2>
+        <p class="section-subtitle">
+          A selection of independent artists and bands we’ve helped go from demo to release-ready records.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4 tors-artists-grid">
+      <!-- Card 1 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="artist-card">
+          <div class="artist-frame">
+            <img src="img/artist-5 (1).jpg" alt="Artist A" class="artist-cover" />
+          </div>
+          <h3 class="artist-name">Monica Leone</h3>
+          <p class="artist-meta">Pop • Singer-Songwriter</p>
+        </article>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="artist-card">
+          <div class="artist-frame">
+            <img src="img/artist-6.jpg" alt="Artist B" class="artist-cover" />
+          </div>
+          <h3 class="artist-name">Neon District</h3>
+          <p class="artist-meta">Indie • Band</p>
+        </article>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="artist-card">
+          <div class="artist-frame">
+            <img src="img/artist-7.jpg" alt="Artist C" class="artist-cover" />
+          </div>
+          <h3 class="artist-name">Rivers & Lights</h3>
+          <p class="artist-meta">Worship • Modern</p>
+        </article>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="artist-card">
+          <div class="artist-frame">
+            <img src="img/artist-3.jpg" alt="Artist D" class="artist-cover" />
+          </div>
+          <h3 class="artist-name">Golden Avenue</h3>
+          <p class="artist-meta">Alt • Duo</p>
+        </article>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS / ARTIST QUOTES ============ -->
+<section id="testimonials" class="tors-section tors-testimonials">
+  <div class="container">
+
+    <!-- Encabezado -->
+    <div class="row justify-content-between align-items-end mb-4">
+      <div class="col-12 col-lg-7">
+        <p class="section-eyebrow">ARTIST STORIES</p>
+        <h2 class="section-title mb-2">What Artists Say About TORS</h2>
+        <p class="section-subtitle mb-0">
+          Independent singer-songwriters and bands who trusted us to take their demos
+          from rough idea to release-ready record.
+        </p>
+      </div>
+      <div class="col-12 col-lg-4 text-lg-end mt-3 mt-lg-0">
+        <button class="btn btn-highlight btn-sm ui-sound">
+          Book a Call
+        </button>
+      </div>
+    </div>
+
+    <!-- Tarjetas de testimonios -->
+    <div class="row g-4">
+
+      <!-- Testimonio 1 -->
+      <div class="col-12 col-md-4">
+        <article class="tors-testimonial-card">
+          <div class="tors-testimonial-header d-flex align-items-center gap-3">
+            <div class="tors-testimonial-avatar-wrapper">
+              <img
+                src="img/artist-6.jpg"
+                alt="Portrait of Monica Leone"
+                class="tors-testimonial-avatar"
+              />
+            </div>
+            <div class="tors-testimonial-meta">
+              <h3 class="tors-testimonial-name">Monica Leone</h3>
+              <p class="tors-testimonial-role mb-0">Pop • Singer-Songwriter</p>
+            </div>
+          </div>
+
+          <p class="tors-testimonial-quote">
+            “TORS took a voice-note demo and turned it into the record I always heard in
+            my head. The mix, the strings, everything feels world-class.”
+          </p>
+
+          <div class="tors-testimonial-footer d-flex align-items-center justify-content-between">
+            <span class="tors-testimonial-tag">
+              1.2M+ streams on debut single
+            </span>
+            <span class="tors-testimonial-logo">TORS</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="col-12 col-md-4">
+        <article class="tors-testimonial-card">
+          <div class="tors-testimonial-header d-flex align-items-center gap-3">
+            <div class="tors-testimonial-avatar-wrapper">
+              <img
+                src="img/artist-4.jpg"
+                alt="Portrait of Neon District"
+                class="tors-testimonial-avatar"
+              />
+            </div>
+            <div class="tors-testimonial-meta">
+              <h3 class="tors-testimonial-name">Neon District</h3>
+              <p class="tors-testimonial-role mb-0">Indie • Band</p>
+            </div>
+          </div>
+
+          <p class="tors-testimonial-quote">
+            “The team understood our references immediately. They kept the grit of our
+            demos but elevated the low-end and vocals to a truly professional level.”
+          </p>
+
+          <div class="tors-testimonial-footer d-flex align-items-center justify-content-between">
+            <span class="tors-testimonial-tag">
+              Intl. Spotify editorial support
+            </span>
+            <span class="tors-testimonial-logo">TORS</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="col-12 col-md-4">
+        <article class="tors-testimonial-card">
+          <div class="tors-testimonial-header d-flex align-items-center gap-3">
+            <div class="tors-testimonial-avatar-wrapper">
+              <img
+                src="img/artist-7.jpg"
+                alt="Portrait of Rivers &amp; Lights"
+                class="tors-testimonial-avatar"
+              />
+            </div>
+            <div class="tors-testimonial-meta">
+              <h3 class="tors-testimonial-name">Rivers &amp; Lights</h3>
+              <p class="tors-testimonial-role mb-0">Worship • Modern</p>
+            </div>
+          </div>
+
+          <p class="tors-testimonial-quote">
+            “They treated our songs with so much respect. The arrangements, dynamics and
+            vocal production compete easily with our favourite reference records.”
+          </p>
+
+          <div class="tors-testimonial-footer d-flex align-items-center justify-content-between">
+            <span class="tors-testimonial-tag">
+              300k+ streams • Global release
+            </span>
+            <span class="tors-testimonial-logo">TORS</span>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FINAL CALL TO ACTION ============ -->
+<section id="book-call" class="tors-section tors-final-cta">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      
+      <div class="col-lg-7">
+        <p class="section-eyebrow">READY TO START?</p>
+        <h2 class="section-title mb-3">
+          Book a Call &amp; Start Your Next Release.
+        </h2>
+        <p class="section-subtitle mb-4">
+          Share your demos, goals and timeline. We’ll match you with the right producer
+          and map out a clear plan from first idea to release-ready record.
+        </p>
+
+        <div class="row g-3 tors-final-points">
+          <div class="col-sm-4 d-flex">
+            <div class="tors-final-bullet">
+              <span class="tors-final-dot"></span>
+              <div>
+                <h3 class="tors-final-label">300M+ Streams</h3>
+                <p class="tors-final-text">Proven results for independent artists.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <div class="tors-final-bullet">
+              <span class="tors-final-dot"></span>
+              <div>
+                <h3 class="tors-final-label">Global Team</h3>
+                <p class="tors-final-text">Producers, engineers &amp; musicians worldwide.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <div class="tors-final-bullet">
+              <span class="tors-final-dot"></span>
+              <div>
+                <h3 class="tors-final-label">Release-Ready</h3>
+                <p class="tors-final-text">Mix &amp; master optimised for all platforms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna derecha: CTA principal -->
+      <div class="col-lg-5">
+        <div class="tors-final-panel">
+          <p class="tors-final-tag">Free 15-minute discovery call</p>
+          <h3 class="tors-final-heading">
+            Tell us about your project, we’ll handle the rest.
+          </h3>
+          <p class="tors-final-copy">
+            No pressure, no hard sell – just a clear next step for your music.
+          </p>
+
+          <a href="#contact" class="btn btn-highlight btn-lg w-100 ui-sound">
+            Book a Call
+            <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+
+          <p class="tors-final-note">
+            Typical projects start from <strong>$X per instrument</strong>.  
+            Full pricing breakdown available on the dedicated pricing page.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="before-after" class="tors-section tors-before-after">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-12 col-lg-6">
+        <p class="section-eyebrow">BEFORE / AFTER</p>
+        <h2 class="section-title mb-2">Compare Demo vs Final Mix</h2>
+        <p class="section-subtitle mb-3">
+          Instantly switch between the raw demo and the fully produced version to hear the difference our team makes.
+        </p>
+
+        <div class="tors-ba-toggle">
+          <span class="toggle-label active" data-mode="demo">Demo</span>
+          <div class="toggle-track">
+            <div class="toggle-thumb"></div>
+          </div>
+          <span class="toggle-label" data-mode="final">Final</span>
+        </div>
+
+        <p class="tors-ba-current">
+          Listening to: <span id="baCurrentLabel">Demo</span>
+        </p>
+
+        <button class="btn btn-highlight tors-ba-play ui-sound" type="button">
+          <i class="bi bi-play-fill me-2"></i>
+          Play
+        </button>
+
+        <p class="tors-ba-note">
+          Replace with one of your strongest transformations – verse + chorus works great.
+        </p>
+
+        <!-- tus audios reales -->
+        <audio id="baDemoAudio" src="track/demo.mp3" preload="metadata"></audio>
+        <audio id="baFinalAudio" src="track/epic.mp3" preload="metadata"></audio>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="tors-ba-visual">
+          <div class="tors-ba-wave left"></div>
+          <div class="tors-ba-wave right"></div>
+          <div class="tors-ba-badge">
+            <span>Real Artist</span>
+            <strong>Studio Upgrade</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="tors-footer">
+  <div class="container">
+
+    <div class="row gy-5">
+      
+      <!-- Branding -->
+      <div class="col-12 col-md-4">
+        <div class="footer-brand">
+          <span class="footer-logo"></span>
+          <h4 class="footer-title">TORS</h4>
+          <p class="footer-tagline">The Online Recording Studio</p>
+        </div>
+        <p class="footer-desc">
+          Premium global music production for independent singer-songwriters.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="col-6 col-md-2">
+        <h5 class="footer-head">Explore</h5>
+        <ul class="footer-menu">
+          <li><a href="#listen">Listen</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#services">Services</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div class="col-6 col-md-2">
+        <h5 class="footer-head">Company</h5>
+        <ul class="footer-menu">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Producers</a></li>
+          <li><a href="#">Merch</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="col-12 col-md-4">
+        <h5 class="footer-head">Work With Us</h5>
+        <p class="footer-cta-text">
+          Ready to turn your demo into a release-ready record?
+        </p>
+        <a href="#book-call" class="btn btn-highlight w-auto ui-sound">
+          Book a Call <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider" />
+
+    <div class="footer-bottom">
+      <p class="mb-0">© <span id="year"></span> TORS — All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  
   <script src="script.js"></script>
 </body>
 </html>
