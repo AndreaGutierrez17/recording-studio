@@ -28,44 +28,70 @@ img {
 /* ======================================================
    NAVBAR
 ====================================================== */
-.tors-navbar nav {
-  border-bottom: 1px solid rgba(255,255,255,0.14);
+/* =========== NAVBAR FIJO =========== */
+
+.tors-navbar {
+  position: fixed;           /* siempre pegado arriba */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  background: #000000;       /* negro sólido en la parte alta */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  transition: background 0.25s ease, 
+              box-shadow 0.25s ease,
+              backdrop-filter 0.25s ease;
 }
 
-.navbar-brand .brand-main {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -1px;
+/* Estado al hacer scroll (clase .scrolled ya la pone tu JS) */
+.tors-navbar.scrolled {
+  background: rgba(0, 0, 0, 0.88);   /* ligeramente transparente */
+  backdrop-filter: blur(14px);       /* efecto borroso bonito */
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
 }
 
-.navbar-brand .brand-sub {
-  font-size: 0.85rem;
-  opacity: 0.75;
+/* Contenedor brand (TORS) */
+.tors-navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.nav-link {
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: .3s;
+/* Logo imagen */
+.tors-logo-img {
+  height: 36px;               /* tamaño del logo */
+  width: auto;
+  object-fit: contain;
 }
 
-.nav-link:hover {
-  color: var(--tors-yellow) !important;
-}
-
-.btn-highlight {
-  background: var(--tors-yellow);
-  color: #000 !important;
-  border-radius: 8px;
-  padding: 8px 16px;
+/* Texto TORS al lado del logo, si lo usas */
+.tors-logo-text {
   font-weight: 700;
-  transition: .25s;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
-.btn-highlight:hover {
-  filter: brightness(1.15);
+.navbar-toggler {
+  border: none;
+  box-shadow: none !important;
 }
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* icono hamburguesa en blanco */
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
 
 /* ======================================================
    HERO
@@ -1247,4 +1273,153 @@ img {
     margin-top: 12px;
   }
 }
+
+
+/* =======================
+   PRICING SECTION – GLASS
+======================= */
+
+.tors-pricing {
+  position: relative;
+  padding: 100px 0;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Fondo con tu imagen dorada */
+.tors-pricing-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("img/persing.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+/* Para que el contenido esté encima */
+.tors-pricing .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* GRID */
+.tors-pricing-grid {
+  margin-top: 40px;
+}
+
+/* Tarjetas Glass */
+.tors-price-card {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(254, 205, 85, 0.35);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 35px 28px;
+  transition: 0.35s ease;
+  height: 100%;
+  box-shadow: 0 0 12px rgba(254, 205, 85, 0.10);
+}
+
+.tors-price-card:hover {
+  border-color: #FECD55;
+  transform: translateY(-6px);
+  box-shadow: 0 6px 35px rgba(254, 205, 85, 0.32);
+}
+
+/* Pills */
+.tors-price-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(254, 205, 85, 0.35);
+  color: #FECD55;
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tors-price-pill-hot {
+  background: linear-gradient(135deg, #FECD55, #ffcb3b);
+  color: #000;
+  border: none;
+  font-weight: 700;
+}
+
+/* Títulos */
+.tors-price-title {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.tors-price-from {
+  color: #FECD55;
+  font-size: 1rem;
+  margin: 8px 0 14px;
+}
+
+.tors-price-from span {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* Descriptivos */
+.tors-price-tagline {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.tors-price-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+}
+
+.tors-price-list li {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.tors-price-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #FECD55;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Card destacada */
+.tors-price-featured {
+  background: rgba(0, 0, 0, 0.58);
+  border: 1px solid #FECD55;
+  transform: translateY(-4px);
+  box-shadow: 0 0 45px rgba(254, 205, 85, 0.25);
+}
+
+.tors-price-featured:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 60px rgba(254, 205, 85, 0.35);
+}
+
+/* Nota inferior */
+.tors-pricing-note {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 16px;
+}
+
+/* Responsivo */
+@media (max-width: 767.98px) {
+  .tors-price-card {
+    text-align: center;
+  }
+}
+
 

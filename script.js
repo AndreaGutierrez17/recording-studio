@@ -1,5 +1,4 @@
 // script.js
-
 document.addEventListener("DOMContentLoaded", function () {
   // =======================
   // NAVBAR SCROLL EFFECT
@@ -40,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // =======================
-  // SONIDO UI PARA BOTONES (WAV)
+  // SONIDO UI PARA BOTONES
   // =======================
-  // Usa un WAV que ya tienes en /track/
-  let uiSound = null;
+  let uiSound;
   try {
-    uiSound = new Audio("track/mixkit-cool-guitar.wav");
+    // pon aquí tu WAV de click
+    uiSound = new Audio("track/mixkit-game.wav");
   } catch (e) {
     uiSound = null;
   }
@@ -56,123 +55,119 @@ document.addEventListener("DOMContentLoaded", function () {
       btn.addEventListener("click", function () {
         uiSound.currentTime = 0;
         uiSound.play().catch(function () {
-          // navegador bloquea → no truena nada
+          // por si el navegador bloquea el audio
         });
       });
     });
   }
 
   // =======================
-  // PLAYLIST "LISTEN TO OUR WORK"
-  // (tarjetas tipo Sony: .track-card y .tors-track-card)
+  // PLAYLIST – LISTEN TO OUR WORK
   // =======================
   const trackCards = Array.from(
     document.querySelectorAll(".track-card, .tors-track-card")
   );
 
-  const tracks = trackCards.map(function (card) {
-    return {
-      card: card,
-      audio: card.querySelector("audio"),
-      playBtn:
-        card.querySelector(".track-play") ||
-        card.querySelector(".tors-track-play-btn"),
-      wave:
-        card.querySelector(".track-wave") ||
-        card.querySelector(".tors-track-wave"),
-    };
-  });
+  if (trackCards.length) {
+    const tracks = trackCards.map(function (card) {
+      return {
+        card: card,
+        audio: card.querySelector("audio"),
+        playBtn:
+          card.querySelector(".track-play") ||
+          card.querySelector(".tors-track-play-btn"),
+        wave:
+          card.querySelector(".track-wave") ||
+          card.querySelector(".tors-track-wave"),
+      };
+    });
 
-  let currentIndex = -1;
+    let currentIndex = -1;
 
-  function stopCurrent() {
-    if (currentIndex < 0) return;
+    function stopCurrent() {
+      if (currentIndex < 0) return;
+      const item = tracks[currentIndex];
+      if (!item) return;
 
-    const item = tracks[currentIndex];
-    if (!item) return;
+      if (item.audio && !item.audio.paused) {
+        item.audio.pause();
+        item.audio.currentTime = 0;
+      }
 
-    if (item.audio && !item.audio.paused) {
-      item.audio.pause();
-      item.audio.currentTime = 0;
-    }
-
-    if (item.card) {
-      item.card.classList.remove("playing", "is-playing");
-    }
-
-    if (item.playBtn) {
-      item.playBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
-    }
-
-    currentIndex = -1;
-  }
-
-  function playTrack(index) {
-    const item = tracks[index];
-    if (!item || !item.audio) return;
-
-    // si ya está sonando → pausar
-    if (currentIndex === index && !item.audio.paused) {
-      stopCurrent();
-      return;
-    }
-
-    // parar cualquier otro
-    stopCurrent();
-
-    item.audio
-      .play()
-      .then(function () {
-        currentIndex = index;
-
-        if (item.card) {
-          item.card.classList.add("playing", "is-playing");
-        }
-        if (item.playBtn) {
-          item.playBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
-        }
-      })
-      .catch(function () {
-        // por si el navegador bloquea la reproducción
-      });
-
-    item.audio.onended = function () {
       if (item.card) {
         item.card.classList.remove("playing", "is-playing");
       }
+
       if (item.playBtn) {
         item.playBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
       }
+
       currentIndex = -1;
-    };
-  }
+    }
 
-  // eventos botón play
-  tracks.forEach(function (item, index) {
-    if (!item.playBtn) return;
+    function playTrack(index) {
+      const item = tracks[index];
+      if (!item || !item.audio) return;
 
-    item.playBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      playTrack(index);
-    });
-  });
-
-  // eventos click en tarjeta completa
-  tracks.forEach(function (item, index) {
-    if (!item.card) return;
-
-    item.card.addEventListener("click", function (e) {
-      const target = e.target;
-      if (
-        target.closest &&
-        (target.closest(".track-play") ||
-          target.closest(".tors-track-play-btn"))
-      ) {
+      // si clican en el mismo → pausa
+      if (currentIndex === index && !item.audio.paused) {
+        stopCurrent();
         return;
       }
-      playTrack(index);
+
+      stopCurrent();
+
+      item.audio
+        .play()
+        .then(function () {
+          currentIndex = index;
+          if (item.card) {
+            item.card.classList.add("playing", "is-playing");
+          }
+          if (item.playBtn) {
+            item.playBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+          }
+        })
+        .catch(function () {
+          // por permisos, etc.
+        });
+
+      item.audio.onended = function () {
+        if (item.card) {
+          item.card.classList.remove("playing", "is-playing");
+        }
+        if (item.playBtn) {
+          item.playBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+        }
+        currentIndex = -1;
+      };
+    }
+
+    // click en botón play
+    tracks.forEach(function (item, index) {
+      if (!item.playBtn) return;
+      item.playBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        playTrack(index);
+      });
     });
-  });
+
+    // click en tarjeta completa
+    tracks.forEach(function (item, index) {
+      if (!item.card) return;
+      item.card.addEventListener("click", function (e) {
+        const target = e.target;
+        if (
+          target.closest &&
+          (target.closest(".track-play") ||
+            target.closest(".tors-track-play-btn"))
+        ) {
+          return;
+        }
+        playTrack(index);
+      });
+    });
+  }
 
   // =======================
   // BEFORE / AFTER PLAYER
@@ -194,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
     thumb &&
     currentLabel
   ) {
-    let mode = "demo"; // "demo" | "final"
+    let mode = "demo"; // demo | final
     let isPlaying = false;
 
     function getCurrentAudio() {
@@ -223,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // thumb
+      // mover la “pastilla”
       if (mode === "demo") {
         thumb.style.transform = "translateX(0)";
         currentLabel.textContent = "Demo";
@@ -232,11 +227,11 @@ document.addEventListener("DOMContentLoaded", function () {
         currentLabel.textContent = "Final";
       }
 
-      // al cambiar, detenemos ambos
+      // al cambiar modo, paro todo
       stopAll();
     }
 
-    // click en labels "Demo" y "Final"
+    // click en los textos Demo / Final
     toggleLabels.forEach((lbl) => {
       lbl.addEventListener("click", () => {
         const selected = lbl.getAttribute("data-mode");
@@ -245,6 +240,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
+
+    // click en la barra (para alternar rápido)
+    const toggleTrack = document.querySelector(".toggle-track");
+    if (toggleTrack) {
+      toggleTrack.addEventListener("click", () => {
+        const newMode = mode === "demo" ? "final" : "demo";
+        updateMode(newMode);
+      });
+    }
 
     // botón Play / Pause
     playBtn.addEventListener("click", () => {
@@ -263,9 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
             playBtn.innerHTML =
               '<i class="bi bi-pause-fill me-2"></i>Pause';
           })
-          .catch(() => {
-            // si el navegador bloquea, no truena
-          });
+          .catch(() => {});
       } else {
         audio.pause();
         isPlaying = false;
@@ -274,9 +276,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
       audio.onended = () => {
         isPlaying = false;
-        playBtn.innerHTML =
-          '<i class="bi bi-play-fill me-2"></i>Play';
+        playBtn.innerHTML = '<i class="bi bi-play-fill me-2"></i>Play';
       };
     });
   }
 });
+
+  // =======================
+  // CERRAR MENÚ MÓVIL AL HACER CLICK EN UN LINK
+  // =======================
+  const navCollapse = document.querySelector(".navbar-collapse");
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  if (navCollapse && navLinks.length) {
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (navCollapse.classList.contains("show")) {
+          const bsCollapse =
+            bootstrap.Collapse.getInstance(navCollapse) ||
+            new bootstrap.Collapse(navCollapse, { toggle: false });
+
+          bsCollapse.hide();
+        }
+      });
+    });
+  }

@@ -638,78 +638,158 @@
 </section>
 
 
-<!-- ============ FINAL CALL TO ACTION ============ -->
-<section id="book-call" class="tors-section tors-final-cta">
+<!-- ============ CONTACT / BOOK A CALL ============ -->
+<section id="book-call" class="tors-section tors-contact">
   <div class="container">
-    <div class="row align-items-center gy-4">
+    <div class="row gy-4 align-items-start">
       
-      <div class="col-lg-7">
-        <p class="section-eyebrow">READY TO START?</p>
+      <!-- Columna izquierda: copy -->
+      <div class="col-12 col-lg-5">
+        <p class="section-eyebrow">CONTACT</p>
         <h2 class="section-title mb-3">
-          Book a Call &amp; Start Your Next Release.
+          Tell us about your project.
         </h2>
         <p class="section-subtitle mb-4">
-          Share your demos, goals and timeline. We’ll match you with the right producer
-          and map out a clear plan from first idea to release-ready record.
+          Share your music, goals and timeline. Our team will come back with a clear proposal
+          for production, mixing and release planning.
         </p>
 
-        <div class="row g-3 tors-final-points">
-          <div class="col-sm-4 d-flex">
-            <div class="tors-final-bullet">
-              <span class="tors-final-dot"></span>
-              <div>
-                <h3 class="tors-final-label">300M+ Streams</h3>
-                <p class="tors-final-text">Proven results for independent artists.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 d-flex">
-            <div class="tors-final-bullet">
-              <span class="tors-final-dot"></span>
-              <div>
-                <h3 class="tors-final-label">Global Team</h3>
-                <p class="tors-final-text">Producers, engineers &amp; musicians worldwide.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 d-flex">
-            <div class="tors-final-bullet">
-              <span class="tors-final-dot"></span>
-              <div>
-                <h3 class="tors-final-label">Release-Ready</h3>
-                <p class="tors-final-text">Mix &amp; master optimised for all platforms.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ul class="tors-contact-points">
+          <li>➤ Ideal for serious independent artists ready to invest.</li>
+          <li>➤ 300M+ streams, international #1s and syncs on Netflix, Hulu &amp; Prime.</li>
+          <li>➤ Global producers, engineers and musicians matched to your style.</li>
+        </ul>
+
+        <p class="tors-contact-note">
+          No hard sell, no pressure – just a focused conversation about your next release.
+        </p>
       </div>
 
-      <!-- Columna derecha: CTA principal -->
-      <div class="col-lg-5">
-        <div class="tors-final-panel">
-          <p class="tors-final-tag">Free 15-minute discovery call</p>
-          <h3 class="tors-final-heading">
-            Tell us about your project, we’ll handle the rest.
-          </h3>
-          <p class="tors-final-copy">
-            No pressure, no hard sell – just a clear next step for your music.
-          </p>
+      <!-- Columna derecha: formulario -->
+      <div class="col-12 col-lg-7">
+        <form class="tors-contact-form" action="#" method="post" novalidate>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="artistName" class="form-label">Artist / Project Name *</label>
+              <input
+                type="text"
+                class="form-control"
+                id="artistName"
+                name="artistName"
+                placeholder="Your artist name"
+                required
+              />
+            </div>
 
-          <a href="#contact" class="btn btn-highlight btn-lg w-100 ui-sound">
-            Book a Call
-            <i class="bi bi-arrow-right ms-2"></i>
-          </a>
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label">Email *</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="you@email.com"
+                required
+              />
+            </div>
 
-          <p class="tors-final-note">
-            Typical projects start from <strong>$X per instrument</strong>.  
-            Full pricing breakdown available on the dedicated pricing page.
-          </p>
-        </div>
+            <div class="col-12 col-md-6">
+              <label for="genre" class="form-label">Primary Genre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="genre"
+                name="genre"
+                placeholder="Pop, indie, worship, country..."
+              />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="referenceLink" class="form-label">Music Link</label>
+              <input
+                type="url"
+                class="form-control"
+                id="referenceLink"
+                name="referenceLink"
+                placeholder="Spotify / YouTube / Drive link"
+              />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="budget" class="form-label">Approx. Budget (USD)</label>
+              <select
+                id="budget"
+                name="budget"
+                class="form-select"
+              >
+                <option value="">Select a range</option>
+                <option value="under-1500">Under $1,500</option>
+                <option value="1500-3000">$1,500 – $3,000</option>
+                <option value="3000-6000">$3,000 – $6,000</option>
+                <option value="6000-plus">$6,000+</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="timeline" class="form-label">Timeline</label>
+              <select
+                id="timeline"
+                name="timeline"
+                class="form-select"
+              >
+                <option value="">When are you hoping to release?</option>
+                <option value="4-weeks">Within 4 weeks</option>
+                <option value="2-months">Within 2 months</option>
+                <option value="3-6-months">3–6 months</option>
+                <option value="no-date">No fixed date yet</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label for="projectDetails" class="form-label">Project Details *</label>
+              <textarea
+                id="projectDetails"
+                name="projectDetails"
+                class="form-control"
+                rows="4"
+                placeholder="How many songs? What stage are the demos at? What are you aiming for with this release?"
+                required
+              ></textarea>
+            </div>
+
+            <div class="col-12 d-flex align-items-start gap-2">
+              <input
+                type="checkbox"
+                class="form-check-input mt-1"
+                id="newsletter"
+                name="newsletter"
+              />
+              <label for="newsletter" class="form-check-label tors-contact-consent">
+                Keep me updated about production tips, case studies and TORS news.
+              </label>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-highlight w-100 ui-sound">
+                Submit Project
+                <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+
+            <div class="col-12">
+              <p class="tors-contact-privacy">
+                We respect your time and your music. Your details are kept confidential and
+                only used to respond to your enquiry.
+              </p>
+            </div>
+
+          </div>
+        </form>
       </div>
-
     </div>
   </div>
 </section>
+
 
 <section id="before-after" class="tors-section tors-before-after">
   <div class="container">
@@ -760,6 +840,7 @@
     </div>
   </div>
 </section>
+
 
 
 <footer class="tors-footer">
