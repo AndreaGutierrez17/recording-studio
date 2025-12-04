@@ -92,6 +92,52 @@ img {
   filter: invert(1);
 }
 
+/* ============================================
+   🔥 FIX NAVBURGER + COLOR AMARILLO + MOBILE
+============================================ */
+
+/* Color y tamaño del icono hamburguesa */
+.navbar-toggler-icon {
+  filter: none !important;
+  background-image: none !important;
+}
+
+.navbar-toggler-icon::before {
+  font-family: "Bootstrap Icons";
+  content: "\f479"; /* ícono 'list' */
+  font-size: 32px;
+  color: var(--tors-yellow); /* amarillo */
+}
+
+/* Cuando el menú está abierto, el icono cambia a "X" */
+.navbar-toggler.collapsed .navbar-toggler-icon::before {
+  content: "\f62a"; /* icon x-lg */
+}
+
+/* Alineación y area clickeable */
+.navbar-toggler {
+  width: 52px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+}
+
+/* Mobile nav background */
+@media (max-width: 991px) {
+  #torsMenu {
+    background: #000;
+    padding: 16px 0;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.25rem;
+    padding: 12px 0;
+    text-align: center;
+  }
+}
+
 
 /* ======================================================
    HERO
